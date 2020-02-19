@@ -7,7 +7,7 @@ const BotEvents = require('viber-bot').Events
 
 app.get('/', (req, res) => { res.send('Hello World!') })
 
-app.listen(PORT || process.env.PORT ,() => { console.log(Example app listening on port ${port}!) })
+app.listen(PORT || process.env.PORT, () => { console.log(`Example app listening on port ${port}!`) })
 
 //start_here
 const bot = new ViberBot({
