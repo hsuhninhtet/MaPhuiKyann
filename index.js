@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const PORT = 3000 
 
 const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => { res.send('Hello World!') })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(PORT || process.env.PORT () => { console.log(Example app listening on port ${port}!) })
 
 //start_here
 const bot = new ViberBot({
