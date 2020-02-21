@@ -21,7 +21,7 @@ const logger = winston.createLogger({
 const bot = new ViberBot(logger, {
     authToken: process.env.AUTH_TOKEN, // <--- Paste your token here
     name: "To Do App",  // <--- Your bot name here
-    avatar: "https://dvgpba5hywmpo.cloudfront.net/media/image/zk9YT3k1DMABNdV8GNNaEPvYmp" // It is recommended to be 720x720, and no more than 100kb.
+    avatar: "https://drive.google.com/file/d/1EmKYh-U__Q-V67khAmIWLpGsrJVhRNVN/view?usp=sharing" // It is recommended to be 720x720, and no more than 100kb.
 });
 
 if (process.env.NOW_URL || process.env.HEROKU_URL) {
