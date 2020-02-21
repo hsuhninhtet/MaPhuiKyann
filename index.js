@@ -68,7 +68,8 @@ bot.onTextMessage(/mingalarpar/i, (message, response) =>{
 		}]
 	};
 	 
-	const message = new RichMedia(SAMPLE_RICH_MEDIA);
+	
+	response.send(new RichMediaMessage(SAMPLE_RICH_MEDIA))
 });
 
 	
