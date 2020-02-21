@@ -54,7 +54,7 @@ bot.onTextMessage(/mingalarpar/i, (message, response) =>{
 			   "Rows":3,
 			   "ActionType":"open-url",
 			   "ActionBody":"https://www.google.com",
-			   "Image":"http://html-test:8080/myweb/guy/assets/imageRMsmall2.png"
+			   "Image":"https://techcrunch.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-5.28.28-PM.png?w=730&crop=1"
 			},
 			{
 			   "Columns":6,
@@ -92,7 +92,7 @@ bot.onTextMessage(/mingalarpar/i, (message, response) =>{
 			   "Rows":3,
 			   "ActionType":"open-url",
 			   "ActionBody":"https://www.google.com",
-			   "Image":"https://s16.postimg.org/wi8jx20wl/image_RMsmall2.png"
+			   "Image":"https://techcrunch.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-5.28.28-PM.png?w=730&crop=1"
 			},
 			{
 			   "Columns":6,
