@@ -20,8 +20,8 @@ const logger = winston.createLogger({
 // Creating the bot with access token, name and avatar
 const bot = new ViberBot(logger, {
     authToken: process.env.AUTH_TOKEN, // <--- Paste your token here
-    name: "To Do App",  // <--- Your bot name here
-    avatar: "https://drive.google.com/file/d/1EmKYh-U__Q-V67khAmIWLpGsrJVhRNVN/view?usp=sharing" // It is recommended to be 720x720, and no more than 100kb.
+    name: "Ma Phyi Kyan",  // <--- Your bot name here
+    avatar: "https://static.wixstatic.com/media/3b1a9f_3bcff27db73641ecbe1b435dcf4a0635~mv2.png" // It is recommended to be 720x720, and no more than 100kb.
 });
 
 if (process.env.NOW_URL || process.env.HEROKU_URL) {
@@ -32,17 +32,7 @@ if (process.env.NOW_URL || process.env.HEROKU_URL) {
 } else {
     logger.debug('Could not find the now.sh/Heroku environment variables. Please make sure you followed readme guide.');
 }
-{
-	"sender":{
-	   "name":"John McClane",
-	   "avatar":"http://avatar.example.com"
-	},
-	"tracking_data":"tracking data",
-	"type":"picture",
-	"text":"Welcome to our bot!",
-	"media":"http://www.images.com/img.jpg",
-	"thumbnail":"http://www.images.com/thumb.jpg"
- }
+
 
 bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
