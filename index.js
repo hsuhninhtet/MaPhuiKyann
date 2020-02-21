@@ -39,8 +39,16 @@ bot.onSubscribe(response => {
 });
 
 
-bot.onTextMessage(/^hi|hello$/i, (message, response) =>
-    response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`)));
+bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
+	response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`))
+});
+
+bot.onTextMessage(/mingalarpar/i, (message, response) =>{
+	response.send(new TextMessage(`Min Ga Lar Par Shint`))
+});
+
+	
+
 
 
 
