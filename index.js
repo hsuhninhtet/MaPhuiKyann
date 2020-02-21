@@ -22,7 +22,7 @@ const bot = new ViberBot(logger, {
     authToken: process.env.AUTH_TOKEN, // <--- Paste your token here
     name: "Ma Phyi Kyan",  // <--- Your bot name here
     avatar: "https://static.wixstatic.com/media/3b1a9f_3bcff27db73641ecbe1b435dcf4a0635~mv2.png" // It is recommended to be 720x720, and no more than 100kb.
-});
+ var test= });
 
 if (process.env.NOW_URL || process.env.HEROKU_URL) {
     const http = require('http');
