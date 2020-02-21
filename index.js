@@ -32,8 +32,17 @@ if (process.env.NOW_URL || process.env.HEROKU_URL) {
 } else {
     logger.debug('Could not find the now.sh/Heroku environment variables. Please make sure you followed readme guide.');
 }
-
-{"status":12,"status_message":"maximum messages from Public Account to Viber user without reply exceeded.","message_token":XXXXXXXXXXXXXXXXXXX,"chat_hostname":"SN-CHAT-0x_"}
+{
+	"sender":{
+	   "name":"John McClane",
+	   "avatar":"http://avatar.example.com"
+	},
+	"tracking_data":"tracking data",
+	"type":"picture",
+	"text":"Welcome to our bot!",
+	"media":"http://www.images.com/img.jpg",
+	"thumbnail":"http://www.images.com/thumb.jpg"
+ }
 
 bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
