@@ -33,6 +33,7 @@ if (process.env.NOW_URL || process.env.HEROKU_URL) {
     logger.debug('Could not find the now.sh/Heroku environment variables. Please make sure you followed readme guide.');
 }
 
+{"status":12,"status_message":"maximum messages from Public Account to Viber user without reply exceeded.","message_token":XXXXXXXXXXXXXXXXXXX,"chat_hostname":"SN-CHAT-0x_"}
 
 bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
@@ -59,7 +60,7 @@ bot.onTextMessage(/mingalarpar/i, (message, response) =>{
 			{
 			   "Columns":6,
 			   "Rows":2,
-			   "Text":"<font color=#323232><b>မင်္ဂလာပါရှင်။ မဖီးကြမ်းမှ ကြိုဆိုပါတယ်။</b></font><font color=#777777><br>လူကြီးမင်းတို့ အလိုရှိရာ ငှက်ပျောသီးများကို ဝယ်ယူရရှိနိုင်ပါတယ်၊ ပစ္စည်းအရည်အသွေးကောင်းမွန်မှုနှင့် လူကြီးမင်းတို့စိတ်တိုင်းကျဝယ်ယူရရှိနိုင်ရေးသည် မဖီးကြမ်းလေးအတွက် ပထမဖြစ်ပါသည်။ organic ပစ္စည်းများဖြစ်ပါတယ်ရှင့်။ </font><font color=#6fc133>$17.99</font>",
+			   "Text":"<font color=#323232><b>မင်္ဂလာပါရှင်။ မဖီးကြမ်းမှ ကြိုဆိုပါတယ်။ လူကြီးမင်းတို့ အလိုရှိရာ ငှက်ပျောသီးများကို ဝယ်ယူရရှိနိုင်ပါတယ်၊ ပစ္စည်းအရည်အသွေးကောင်းမွန်မှုနှင့် လူကြီးမင်းတို့စိတ်တိုင်းကျဝယ်ယူရရှိနိုင်ရေးသည် မဖီးကြမ်းလေးအတွက် ပထမဖြစ်ပါသည်။ organic ပစ္စည်းများဖြစ်ပါတယ်ရှင့်။</b></font><font color=#777777><br>Sound Intone </font><font color=#6fc133>$17.99</font>",
 			   "ActionType":"open-url",
 			   "ActionBody":"https://www.google.com",
 			   "TextSize":"medium",
