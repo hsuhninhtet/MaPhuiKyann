@@ -44,7 +44,31 @@ bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
 });
 
 bot.onTextMessage(/mingalarpar/i, (message, response) =>{
-	response.send(new TextMessage(`Min Ga Lar Par Shint`))
+	const SAMPLE_RICH_MEDIA = {
+		"ButtonsGroupColumns": 6,
+		"ButtonsGroupRows": 2,
+		"BgColor": "#FFFFFF",
+		"Buttons": [{
+			"ActionBody": "http://www.website.com/go_here",
+			"ActionType": "open-url",
+			"BgMediaType": "picture",
+			"Image": "https://techcrunch.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-5.28.28-PM.png?w=730&crop=1",
+			"BgColor": "#000000",
+			"TextOpacity": 60,
+			"Rows": 4,
+			"Columns": 6
+		}, {
+			"ActionBody": "http://www.website.com/go_here",
+			"ActionType": "open-url",
+			"BgColor": "#85bb65",
+			"Text": "Buy",
+			"TextOpacity": 60,
+			"Rows": 1,
+			"Columns": 6
+		}]
+	};
+	 
+	const message = new RichMedia(SAMPLE_RICH_MEDIA);
 });
 
 	
