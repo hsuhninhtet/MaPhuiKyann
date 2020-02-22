@@ -64,7 +64,7 @@ bot.onTextMessage(/mingalarpar/i, (message, response) =>{
 			{
 			   "Columns":6,
 			   "Rows":2,
-			   "Text":"<font color=#323232><b>စျေးနှုန်း- ၈၀၀ကျပ်</b></font><font color=#777777><br>အရေအတွက်- ၂၀၀ ",
+			   "Text":"<font color=#323232><b>စျေးနှုန်း- ၈၀၀ကျပ်</b></font><font color=#323232><br><br>အရေအတွက်- ၂၀၀ ",
 			   "ActionType":"open-url",
 			   "ActionBody":"https://www.google.com",
 			   "TextSize":"medium",
