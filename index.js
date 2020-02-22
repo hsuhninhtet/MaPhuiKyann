@@ -38,6 +38,24 @@ bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) =>
 	onFinish(new TextMessage(`မင်္ဂလာပါရှင်။, ${userProfile.name}။ မဖီးကြမ်းမှ ကြိုဆိုပါတယ်။ လူကြီးမင်းတို့ အလိုရှိရာ ငှက်ပျောသီးများကို ဝယ်ယူရရှိနိုင်ပါတယ်၊ ပစ္စည်းအရည်အသွေးကောင်းမွန်မှုနှင့် လူကြီးမင်းတို့စိတ်တိုင်းကျဝယ်ယူရရှိနိုင်ရေးသည် မဖီးကြမ်းလေးအတွက် ပထမဖြစ်ပါသည်။ organic ပစ္စည်းများဖြစ်ပါတယ်ရှင့်။`)));
 bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
+const SAMPLE_RICH_MEDIA={
+	"ButtonsGroupColumns":7,
+	"ButtonsGroupRows":1,
+	"Buttons":[
+		{
+			"Columns":6,
+			"Rows":1,
+			"ActionType":"reply",
+			"Text":"<font color=#000000>Buy</font>", 
+			"Text":"<font color=#000000f>Buy</font>",
+			"Text":"<font color=#000000>Buy</font>",
+			"TextSize":"large",
+			"TextVAlign":"middle",
+			"TextHAlign":"middle",
+			
+		}
+	]
+}
 });
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
