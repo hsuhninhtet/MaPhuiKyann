@@ -32,11 +32,7 @@ if (process.env.NOW_URL || process.env.HEROKU_URL) {
 } else {
     logger.debug('Could not find the now.sh/Heroku environment variables. Please make sure you followed readme guide.');
 }
-bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) =>
-	onFinish(new TextMessage(Hi, ${userProfile.name}! Nice to meet you.)));
-bot.onSubscribe(response => {
-    say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
-});
+
 
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
