@@ -3,6 +3,7 @@ const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
 const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const winston = require('winston');
+const ConversationStarted = require('viber-bot').Message.onConversationStarted;
 const wcf = require('winston-console-formatter');
 var request = require('request');
 
@@ -37,6 +38,10 @@ bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) =>
 	onFinish(new TextMessage(Hi, ${userProfile.name}! Nice to meet you.)));
 bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
+});
+
+bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
+	response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`))
 });
 
 bot.onTextMessage(/mingalarpar/i, (message, response) =>{
