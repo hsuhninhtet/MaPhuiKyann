@@ -35,7 +35,7 @@ if (process.env.NOW_URL || process.env.HEROKU_URL) {
 }
 
 bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) =>
-	onFinish(new TextMessage(`Hi, ${userProfile.name}! Nice to meet you.`)));
+	onFinish(new TextMessage(`မင်္ဂလာပါရှင်။, ${userProfile.name}။ မဖီးကြမ်းမှ ကြိုဆိုပါတယ်။ လူကြီးမင်းတို့ အလိုရှိရာ ငှက်ပျောသီးများကို ဝယ်ယူရရှိနိုင်ပါတယ်၊ ပစ္စည်းအရည်အသွေးကောင်းမွန်မှုနှင့် လူကြီးမင်းတို့စိတ်တိုင်းကျဝယ်ယူရရှိနိုင်ရေးသည် မဖီးကြမ်းလေးအတွက် ပထမဖြစ်ပါသည်။ organic ပစ္စည်းများဖြစ်ပါတယ်ရှင့်။`)));
 bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
 });
