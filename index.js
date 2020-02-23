@@ -204,6 +204,7 @@ bot.onTextMessage(/buy/i, (message, response) =>{
 			{
 			   "Columns":6,
 			   "Rows":3,
+			   "ActionType":"reply",
 			   "Text":"<font color=#ffffff> stock</font>",
 			   "TextSize":"large",
 			   "TextVAlign":"middle",
