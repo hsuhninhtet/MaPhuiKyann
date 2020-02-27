@@ -4,7 +4,6 @@ const TextMessage = require('viber-bot').Message.Text;
 const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const winston = require('winston');
 const ConversationStarted = require('viber-bot').Message.onConversationStarted;
-const SAMPLE_KEYBOARD = require('viber-bot').Message.SAMPLE_KEYBOARD;
 const wcf = require('winston-console-formatter');
 var request = require('request');
 
