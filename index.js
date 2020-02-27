@@ -4,7 +4,6 @@ const TextMessage = require('viber-bot').Message.Text;
 const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const winston = require('winston');
 const ConversationStarted = require('viber-bot').Message.onConversationStarted;
-
 const wcf = require('winston-console-formatter');
 var request = require('request');
 
@@ -46,7 +45,7 @@ bot.onSubscribe(response => {
 }
 );
 
-const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
+
 
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
@@ -54,7 +53,7 @@ bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
 });
 
 
-bot.onTextMessage(/mingalarpar/i, (message, response) =>{
+bot.onTextMessage(/want it/i, (message, response) =>{
 	const SAMPLE_RICH_MEDIA = {
 		"ButtonsGroupColumns": 6,
 		"ButtonsGroupRows": 7,
