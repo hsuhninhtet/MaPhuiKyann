@@ -45,22 +45,6 @@ bot.onSubscribe(response => {
 	
 }
 );
-const SAMPLE_KEYBOARD = {
-	"Type": "keyboard",
-	"Revision": 1,
-	"Buttons": [
-		{
-			"Columns": 3,
-			"Rows": 2,
-			"BgColor": "#e6f5ff",
-			"BgMedia": "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg",
-			"BgMediaType": "picture",
-			"BgLoop": true,
-			"ActionType": "reply",
-			"ActionBody": "Yes"
-		}
-	]
-};
 
 const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
 
@@ -68,6 +52,106 @@ const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
 	response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`))
 });
+
+
+bot.onTextMessage(/mingalarpar/i, (message, response) =>{
+	const SAMPLE_RICH_MEDIA = {
+		"ButtonsGroupColumns": 6,
+		"ButtonsGroupRows": 7,
+		"BgColor": "#FFFFFF",
+		"Buttons": [
+			{
+			   "Columns":6,
+			   "Rows":2,
+			   "Text":"<font color=#323232><b>စျေးနှုန်း- ၈၀၀ကျပ်</b></font><font color=#323232><br><br>အရေအတွက်- ၂၀၀ ",
+			   "TextSize":"medium",
+			   "TextVAlign":"middle",
+			   "TextHAlign":"left"
+			},
+			{
+			   "Columns":6,
+			   "Rows":2,
+			   "Text":"<font color=#323232><b>စျေးနှုန်း- ၈၀၀ကျပ်</b></font><font color=#323232><br><br>အရေအတွက်- ၂၀၀ ",
+			   "ActionType":"open-url",
+			   "ActionBody":"https://www.google.com",
+			   "TextSize":"medium",
+			   "TextVAlign":"middle",
+			   "TextHAlign":"left"
+			},
+			{
+			   "Columns":6,
+			   "Rows":1,
+			   "ActionType":"reply",
+			   "ActionBody":"https://www.google.com",
+			   "Text":"<font color=#ffffff>Buy</font>",
+			   "TextSize":"large",
+			   "TextVAlign":"middle",
+			   "TextHAlign":"middle",
+			   "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
+			},
+			{
+			   "Columns":6,
+			   "Rows":1,
+			   "ActionType":"reply",
+			   "ActionBody":"https://www.google.com",
+			   "Text":"<font color=#8367db>MORE DETAILS</font>",
+			   "TextSize":"small",
+			   "TextVAlign":"middle",
+			   "TextHAlign":"middle"
+			},
+			{
+			   "Columns":6,
+			   "Rows":3,
+			   "ActionType":"open-url",
+			   "ActionBody":"https://www.google.com",
+			   "Image":"https://techcrunch.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-5.28.28-PM.png?w=730&crop=1"
+			},
+			{
+			   "Columns":6,
+			   "Rows":2,
+			   "Text":"<font color=#323232><b>စျေးနှုန်း- ၁၀၀၀ကျပ်</b></font><font color=#323232><br><br>အရေအတွက်- ၃၀၀ ",
+			   "ActionType":"open-url",
+			   "ActionBody":"https://www.google.com",
+			   "TextSize":"medium",
+			   "TextVAlign":"middle",
+			   "TextHAlign":"left"
+			},
+			{
+			   "Columns":6,
+			   "Rows":1,
+			   "ActionType":"reply",
+			   "ActionBody":"https://www.google.com",
+			   "Text":"<font color=#ffffff>Buy</font>",
+			   "TextSize":"large",
+			   "TextVAlign":"middle",
+			   "TextHAlign":"middle",
+			   "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
+			},
+			{
+			   "Columns":6,
+			   "Rows":1,
+			   "ActionType":"reply",
+			   "ActionBody":"https://www.google.com",
+			   "Text":"<font color=#8367db>MORE DETAILS</font>",
+			   "TextSize":"small",
+			   "TextVAlign":"middle",
+			   "TextHAlign":"middle"
+			}
+		
+			
+			
+		 ]
+	};
+	 
+	
+	response.send(new RichMediaMessage(SAMPLE_RICH_MEDIA));
+});
+
+
+
+
+
+
 
 bot.onTextMessage(/mingalarpar/i, (message, response) =>{
 	const SAMPLE_RICH_MEDIA = {
