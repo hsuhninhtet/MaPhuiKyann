@@ -4,6 +4,7 @@ const TextMessage = require('viber-bot').Message.Text;
 const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const winston = require('winston');
 const ConversationStarted = require('viber-bot').Message.onConversationStarted;
+const SAMPLE_KEYBOARD = require('viber-bot').Message.SAMPLE_KEYBOARD;
 const wcf = require('winston-console-formatter');
 var request = require('request');
 
@@ -44,6 +45,25 @@ bot.onSubscribe(response => {
 	
 }
 );
+const SAMPLE_KEYBOARD = {
+	"Type": "keyboard",
+	"Revision": 1,
+	"Buttons": [
+		{
+			"Columns": 3,
+			"Rows": 2,
+			"BgColor": "#e6f5ff",
+			"BgMedia": "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg",
+			"BgMediaType": "picture",
+			"BgLoop": true,
+			"ActionType": "reply",
+			"ActionBody": "Yes"
+		}
+	]
+};
+
+const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
+
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
 	response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`))
