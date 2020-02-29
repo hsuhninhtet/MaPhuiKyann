@@ -4,6 +4,7 @@ const TextMessage = require('viber-bot').Message.Text;
 const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const winston = require('winston');
 const ConversationStarted = require('viber-bot').Message.onConversationStarted;
+const KeyboardGeneratorModule = require('./keyboard_generator.js');
 const wcf = require('winston-console-formatter');
 var request = require('request');
 
@@ -45,71 +46,45 @@ bot.onSubscribe(response => {
 }
 );
 
+const actionBodyYes = 'Yes';
+const actionBodyNo = 'No';
+
+function redeemYesOrNoKeyboard() {
+	let keyboardGenerator = new KeyboardGeneratorModule();
+	keyboardGenerator.addElement('Yes I would', actionBodyYes, '#57B8FF');
+	keyboardGenerator.addElement('Not now', actionBodyNo, '#DB3069');
+	return keyboardGenerator.build();
+}
+
+function sendQuestion(response) {
+	return response.send(new TextMessage('Would you like to build a bot?',
+		redeemYesOrNoKeyboard()));
+}
+
+bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
+
+	// That's not a text message. Just ask the question.
+	if (!(message instanceof TextMessage)) {
+		sendQuestion(response);
+		return;
+	}
+
+	let messageActionBody = message.text.toUpperCase();
+
+	if (messageActionBody === actionBodyYes.toUpperCase()) {
+		// TODO: Handle yes!
+	} else if (messageActionBody === actionBodyNo.toUpperCase()) {
+		// TODO: Handle no!
+	} else {
+		sendQuestion(response);
+	}
+})
 
 
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
 	response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`))
 });
-
-
-bot.onTextMessage(/want it/i, (message, response) =>{
-	const SAMPLE_RICH_MEDIA = {
-		"ButtonsGroupColumns": 6,
-		"ButtonsGroupRows": 7,
-		"BgColor": "#FFFFFF",
-		"Buttons": [
-			{
-			   "Columns":6,
-			   "Rows":2,
-			   "Text":"<font color=#323232><b>စျေးနှုန်း- ၈၀၀ကျပ်</b></font><font color=#323232><br><br>အရေအတွက်- ၂၀၀ ",
-			   "TextSize":"medium",
-			   "TextVAlign":"middle",
-			   "TextHAlign":"left"
-			},
-			{
-			   "Columns":6,
-			   "Rows":2,
-			   "Text":"<font color=#323232><b>စျေးနှုန်း- ၈၀၀ကျပ်</b></font><font color=#323232><br><br>အရေအတွက်- ၂၀၀ ",
-			   "ActionType":"open-url",
-			   "ActionBody":"https://www.google.com",
-			   "TextSize":"medium",
-			   "TextVAlign":"middle",
-			   "TextHAlign":"left"
-			},
-			{
-			   "Columns":6,
-			   "Rows":1,
-			   "ActionType":"reply",
-			   "ActionBody":"https://www.google.com",
-			   "Text":"<font color=#ffffff>Buy</font>",
-			   "TextSize":"large",
-			   "TextVAlign":"middle",
-			   "TextHAlign":"middle",
-			   "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
-			},
-			{
-			   "Columns":6,
-			   "Rows":1,
-			   "ActionType":"reply",
-			   "ActionBody":"https://www.google.com",
-			   "Text":"<font color=#8367db>MORE DETAILS</font>",
-			   "TextSize":"small",
-			   "TextVAlign":"middle",
-			   "TextHAlign":"middle"
-			}	
-		 ]
-	};
-	 
-	
-	response.send(new RichMediaMessage(SAMPLE_RICH_MEDIA));
-});
-
-
-
-
-
-
 
 bot.onTextMessage(/mingalarpar/i, (message, response) =>{
 	const SAMPLE_RICH_MEDIA = {
