@@ -39,50 +39,52 @@ if (process.env.NOW_URL || process.env.HEROKU_URL) {
 		
 bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) =>
 	onFinish(new TextMessage(`မင်္ဂလာပါရှင်။, ${userProfile.name}။ မဖီးကြမ်းမှ ကြိုဆိုပါတယ်။ လူကြီးမင်းတို့ အလိုရှိရာ ငှက်ပျောသီးများကို ဝယ်ယူရရှိနိုင်ပါတယ်၊ ပစ္စည်းအရည်အသွေးကောင်းမွန်မှုနှင့် လူကြီးမင်းတို့စိတ်တိုင်းကျဝယ်ယူရရှိနိုင်ရေးသည် မဖီးကြမ်းလေးအတွက် ပထမဖြစ်ပါသည်။ organic ပစ္စည်းများဖြစ်ပါတယ်ရှင့်။`)));
-bot.onSubscribe(response => {
+	bot.onTextMessage(/wantit/i, (message, response) =>{
+		const SAMPLE_RICH_MEDIA = {
+			"ButtonsGroupColumns": 6,
+			"ButtonsGroupRows": 7,
+			"BgColor": "#FFFFFF",
+			"Buttons": [
+				{
+					"Columns":6,
+					"Rows":3,
+					"ActionType":"open-url",
+					"ActionBody":"https://www.google.com",
+					"Image":"https://techcrunch.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-5.28.28-PM.png?w=730&crop=1"
+				 },
+				
+				  {
+					 "Columns":6,
+					 "Rows":1,
+					 "ActionType":"reply",
+					 "ActionBody":"https://www.google.com",
+					 "Text":"<font color=#ffffff>Buy</font>",
+					 "TextSize":"large",
+					 "TextVAlign":"middle",
+					 "TextHAlign":"middle",
+					 "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
+				  },
+				  {
+					 "Columns":6,
+					 "Rows":1,
+					 "ActionType":"reply",
+					 "ActionBody":"https://www.google.com",
+					 "Text":"<font color=#8367db>MORE DETAILS</font>",
+					 "TextSize":"small",
+					 "TextVAlign":"middle",
+					 "TextHAlign":"middle"
+				  }
+			  ]
+		 };
+	bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
 
 	
 }
+
 );
 
-bot.onTextMessage(/wantit/i, (message, response) =>{
-	const SAMPLE_RICH_MEDIA = {
-		"ButtonsGroupColumns": 6,
-		"ButtonsGroupRows": 7,
-		"BgColor": "#FFFFFF",
-		"Buttons": [
-			{
-				"Columns":6,
-				"Rows":3,
-				"ActionType":"open-url",
-				"ActionBody":"https://www.google.com",
-				"Image":"https://techcrunch.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-5.28.28-PM.png?w=730&crop=1"
-			 },
-			
-			  {
-				 "Columns":6,
-				 "Rows":1,
-				 "ActionType":"reply",
-				 "ActionBody":"https://www.google.com",
-				 "Text":"<font color=#ffffff>Buy</font>",
-				 "TextSize":"large",
-				 "TextVAlign":"middle",
-				 "TextHAlign":"middle",
-				 "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
-			  },
-			  {
-				 "Columns":6,
-				 "Rows":1,
-				 "ActionType":"reply",
-				 "ActionBody":"https://www.google.com",
-				 "Text":"<font color=#8367db>MORE DETAILS</font>",
-				 "TextSize":"small",
-				 "TextVAlign":"middle",
-				 "TextHAlign":"middle"
-			  }
-		  ]
-	 };
+
 
 
 
