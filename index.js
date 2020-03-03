@@ -4,7 +4,7 @@ const TextMessage = require('viber-bot').Message.Text;
 const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const winston = require('winston');
 const ConversationStarted = require('viber-bot').Message.onConversationStarted;
-const KeyboardGeneratorModule = require('./keyboard_generator.js');
+//const KeyboardGeneratorModule = require('./keyboard_generator.js');
 const wcf = require('winston-console-formatter');
 var request = require('request');
 
@@ -46,8 +46,8 @@ bot.onSubscribe(response => {
 }
 );
 
-const actionBodyYes = 'Yes';
-const actionBodyNo = 'No';
+//const actionBodyYes = 'Yes';
+//const actionBodyNo = 'No';
 
 function redeemYesOrNoKeyboard() {
 	let keyboardGenerator = new KeyboardGeneratorModule();
