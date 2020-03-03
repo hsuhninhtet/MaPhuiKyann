@@ -46,40 +46,6 @@ bot.onSubscribe(response => {
 }
 );
 
-//const actionBodyYes = 'Yes';
-//const actionBodyNo = 'No';
-
-function redeemYesOrNoKeyboard() {
-	let keyboardGenerator = new KeyboardGeneratorModule();
-	keyboardGenerator.addElement('Yes I would', actionBodyYes, '#57B8FF');
-	keyboardGenerator.addElement('Not now', actionBodyNo, '#DB3069');
-	return keyboardGenerator.build();
-}
-
-function sendQuestion(response) {
-	return response.send(new TextMessage('Would you like to build a bot?',
-		redeemYesOrNoKeyboard()));
-}
-
-bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
-
-	// That's not a text message. Just ask the question.
-	if (!(message instanceof TextMessage)) {
-		sendQuestion(response);
-		return;
-	}
-
-	let messageActionBody = message.text.toUpperCase();
-
-	if (messageActionBody === actionBodyYes.toUpperCase()) {
-		// TODO: Handle yes!
-	} else if (messageActionBody === actionBodyNo.toUpperCase()) {
-		// TODO: Handle no!
-	} else {
-		sendQuestion(response);
-	}
-})
-
 bot.onTextMessage(/wantit/i, (message, response) =>{
 	const SAMPLE_RICH_MEDIA = {
 		"ButtonsGroupColumns": 6,
