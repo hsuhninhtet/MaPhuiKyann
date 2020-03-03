@@ -80,6 +80,95 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	}
 })
 
+bot.onTextMessage(/mingalarpar/i, (message, response) =>{
+	const SAMPLE_RICH_MEDIA = {
+		"ButtonsGroupColumns": 6,
+		"ButtonsGroupRows": 7,
+		"BgColor": "#FFFFFF",
+		"Buttons": [
+			{
+				"Columns":6,
+				"Rows":3,
+				"ActionType":"open-url",
+				"ActionBody":"https://www.google.com",
+				"Image":"https://techcrunch.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-06-at-5.28.28-PM.png?w=730&crop=1"
+			 },
+			
+			  {
+				 "Columns":6,
+				 "Rows":1,
+				 "ActionType":"reply",
+				 "ActionBody":"https://www.google.com",
+				 "Text":"<font color=#ffffff>Buy</font>",
+				 "TextSize":"large",
+				 "TextVAlign":"middle",
+				 "TextHAlign":"middle",
+				 "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
+			  },
+			  {
+				 "Columns":6,
+				 "Rows":1,
+				 "ActionType":"reply",
+				 "ActionBody":"https://www.google.com",
+				 "Text":"<font color=#8367db>MORE DETAILS</font>",
+				 "TextSize":"small",
+				 "TextVAlign":"middle",
+				 "TextHAlign":"middle"
+			  }
+		  ]
+	 };
+
+
+//'use strict';
+
+const DEFAULT_FONT_COLOR = '#FFFFFF';
+const DEFAULT_IS_SILENT_ACTION = false;
+
+function KeyboardGenerator() {
+    this.elements = [];
+}
+
+KeyboardGenerator.prototype.randomColor = function () {
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+KeyboardGenerator.prototype.elementToKeyboardJSON = function(text, actionBody, 
+							     backgroundColor, fontColor, isSilent) {
+    return [{
+        'Columns': 6,
+        'Rows': 1,
+        'Silent': isSilent,
+        'BgColor': backgroundColor,
+        'ActionType': 'reply',
+        'ActionBody': actionBody,
+        'Text': `<font color='${fontColor}'><b>${text}</b></font>`,
+        'TextVAlign': 'middle',
+        'TextHAlign': 'center',
+        'TextSize': 'large'
+    }];
+}
+
+KeyboardGenerator.prototype.addElement = function(text, actionBody, 
+						   backgroundColor, fontColor, isSilent) {
+    let addedElements = this.elementToKeyboardJSON(text, actionBody, 
+                                                   backgroundColor || this.randomColor(), 
+                                                   fontColor || DEFAULT_FONT_COLOR, 
+                                                   isSilent || DEFAULT_IS_SILENT_ACTION);
+
+    this.elements = this.elements.concat(addedElements);
+}
+
+KeyboardGenerator.prototype.build = function() {
+    return {
+        'Revision': 1,
+        'Type': 'keyboard',
+        'Buttons': this.elements
+    };
+}
+
+module.exports = KeyboardGenerator;
+
+
 
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>{
